@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto, Oswald } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 const roboto = Roboto({
   subsets: ["cyrillic"],
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={'${rpbptp.variable} ${osvald.variable} w-full bg-zinc-950' }>
+      <body className={'${rpbptp.variable} ${osvald.variable} w-full bg-zinc-950 text-white' }>
         <div className="__next">
           <Header />
             <main className="main w-full" id="main">
@@ -34,7 +35,7 @@ export default function RootLayout({
               {children}
               </div>
             </main>
-          <footer />
+          <Footer />
         </div>
       </body>
     </html>

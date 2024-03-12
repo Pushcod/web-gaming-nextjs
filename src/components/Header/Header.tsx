@@ -18,15 +18,20 @@ const Header = () => {
             <Image src='/assets/img/logo.svg' alt='Логотип сайта' width={200} height={50} className='w-full h-full' />
           </Link>
           <NavbarMobile containerStyle={`${openNav ? 'max-h-max border-b border-zinc-800 p-[15px]' : 'max-h-0 overflow-hidden py-0 px-[15px] border-zinc-800/0' } fixed w-full top-[71px] left-0 right-0 transition-all duration-300 bg-zinc-900 md:hidden`} />
-          {/* start component navbar */}
+
           <Navbar containerStyle='hidden md:flex' />
-          {/* end component navbar */}
+
           <div className=''>
-            {/* start menu bar */}
+            <ul className="flex items-center gap-4">
+              <li className="inline-flex">
+                <Link href="" className='uppercase text-white/50 hover:text-white transition-all'>Войти</Link>
+              </li>
+            </ul>
+            
             <button onClick={() => setOpenNav(!openNav)} className='text-xl text-white w-[45px] h-[45px] flex items-center justify-center border border-zinc-500 rounded-md md:hidden'>
               <FaBars />
             </button>
-            {/* end menu bar */}
+            
           </div>
         </div>
       </div> 

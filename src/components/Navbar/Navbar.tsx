@@ -17,7 +17,7 @@ const Navbar = ( { containerStyle } : { containerStyle: string } ) => {
           return (
             <>
               <li key={index}>
-                <Link href={item.url} className='text-white uppercase hover:text-accent transition-all'>{item.label}</Link>
+                <Link href={item.url} className='text-white uppercase hover:text-orange-500 text- transition-all'>{item.label}</Link>
               </li>
             </>
           )
