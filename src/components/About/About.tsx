@@ -11,9 +11,9 @@ const About = () => {
   },[]);
 
   const getBenefists = () => {
-      GlobalApi.getBenefists().then(resp => {
-        console.log(resp);
-        setBenefistsList(resp);
+      GlobalApi.getBenefists().then( resp => {
+        console.log(resp.data.data);
+        setBenefistsList(resp.data.data);
       });
   }
 
