@@ -12,7 +12,7 @@ export default function page({params}) {
       <div className="container mx-auto">
         {/* Начало превью*/}
         <div className="w-full h-[320px] md:h-[520px] overflow-hidden rounded-xl">
-        <img src={process.env.NEXT_PUBLIC_STRAPI_BACKEND_URL + detailArticle?.attributes?.image?.data.attributes?.url} alt="" />
+          <Image src={process.env.NEXT_PUBLIC_STRAPI_BACKEND_URL  + (detailArticle?.attributes?.image?.data.attributes?.url ?? '')} alt='неи' width={1200} height={520} className='w-full h-full object-cover' />
         </div>
         {/* Конец превью*/}
         {/* Начало названия*/}
