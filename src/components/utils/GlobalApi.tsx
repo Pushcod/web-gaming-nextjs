@@ -9,8 +9,10 @@ const axiosClient = axios.create({
     }
 });
 
+const getArticles = () => axiosClient.get('/articles?populate=*');
 const getBenefists = () => axiosClient.get('/preimushhestvas?populate=*');
 
 export default {
     getBenefists,
+    getArticles,
 }
