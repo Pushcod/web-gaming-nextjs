@@ -1,14 +1,22 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import {RegisterLink, LoginLink, LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
+import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '../Navbar/Navbar';
 import { FaBars } from 'react-icons/fa6';
 import NavbarMobile from '../NavbarMobile/NavbarMobile';
 
+
+
 const Header = () => {
 
   const [ openNav, setOpenNav ] = useState(false);
+  const { user } = useKindeBrowserClient();
+  useEffect(() => {
+    console.log(user)
+  }, [user]);
 
   return (
     <header className='w-full h-[70px] border-b border-zinc-800 bg-zinc-950'>
@@ -23,9 +31,25 @@ const Header = () => {
 
           <div className=''>
             <ul className="flex items-center gap-4">
-              <li className="inline-flex">
-                <Link href="" className='uppercase text-white/50 hover:text-white transition-all'>Войти</Link>
-              </li>
+              {user ?
+                <>
+                <div className='flex items-center gap-2'>
+                  {user.picture &&
+                  <Image src={user.picture} alt={'Изображение профиля'} width={50} height={50} className='w-[50px] h-[50px] rounded-full object-cover' />}
+                  <LogoutLink className='uppercase text-white/50 hover:text-white transition-all'>Выйти</LogoutLink>
+                </div>
+                </>
+                :
+                <>
+                    <li className="inline-flex">
+                    <RegisterLink className='uppercase text-white/50 hover:text-white transition-all'>Регистрация</RegisterLink>
+                    </li>
+                    <li className="inline-flex">
+                      <LoginLink className='uppercase text-white/50 hover:text-white transition-all'>Войти</LoginLink>
+                    </li>
+                </>
+              }
+            
             </ul>
             
             <button onClick={() => setOpenNav(!openNav)} className='text-xl text-white w-[45px] h-[45px] flex items-center justify-center border border-zinc-500 rounded-md md:hidden'>
