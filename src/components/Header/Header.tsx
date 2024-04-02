@@ -33,11 +33,14 @@ const Header = () => {
             <ul className="flex items-center gap-4">
               {user ?
                 <>
-                <div className='flex items-center gap-2'>
-                  {user.picture &&
-                  <Image src={user.picture} alt={'Изображение профиля'} width={50} height={50} className='w-[50px] h-[50px] rounded-full object-cover' />}
-                  <LogoutLink className='uppercase text-white/50 hover:text-white transition-all'>Выйти</LogoutLink>
-                </div>
+                
+                  <div className='flex items-center gap-2'>
+                    {user.picture && <Link href="/profile">
+                    <Image src={user.picture} alt={'Изображение профиля'} width={50} height={50} className='w-[50px] h-[50px] rounded-full object-cover' /> </Link>}
+                    <LogoutLink className='uppercase text-white/50 hover:text-white transition-all'>Выйти</LogoutLink>
+                  </div>
+                
+                
                 </>
                 :
                 <>
